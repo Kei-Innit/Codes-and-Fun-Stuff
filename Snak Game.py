@@ -130,7 +130,7 @@ def gameLoop():
             foodx = round(random.randrange(0, dis_width - snake_block) / 10.0) * 10.0
             foody = round(random.randrange(0, dis_height - snake_block) / 10.0) * 10.0
             Length_of_snake += 1
-            snake_speed += 1
+            snake_speed += 1.5
  
         clock.tick(snake_speed)
  
@@ -140,5 +140,4 @@ def gameLoop():
  
 gameLoop()
 
-
-#Convert to py
+# End of code - you can add more to make things fun
