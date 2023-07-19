@@ -1,5 +1,5 @@
 # Orignal Source from : https://www.edureka.co/blog/snake-game-with-pygame/
-# Slightly adjusted and modified by Nazreen Akmal 3 Bakawali 2023 / Naz
+# Slightly adjusted and modified by Naz AKA Kei Innit
 # This is a non monetary gain project. Credits are above
 
 
@@ -26,13 +26,13 @@ pygame.display.set_caption('Snake Game by Naz')
 clock = pygame.time.Clock()
  
 snake_block = 10
-snake_speed = 10
+snake_speed = 8
  
 font_style = pygame.font.SysFont("bahnschrift", 25)
 score_font = pygame.font.SysFont("comicsansms", 35)
  
 def Text():
-    thetext = font_style.render("Tips: The more you eat, the faster you get!", True, white, 200)
+    thetext = font_style.render("Tips: The more you eat, the faster you get!", True, white, 120)
     dis.blit(thetext, [0, 575])
 
 
@@ -57,7 +57,7 @@ def gameLoop():
     game_over = False
     game_close = False
     global snake_speed
-    snake_speed = 10
+    snake_speed = 8
     x1 = dis_width / 2
     y1 = dis_height / 2
  
@@ -74,7 +74,7 @@ def gameLoop():
  
         while game_close == True:
             dis.fill(blue)
-            message("You Lost! Press C-Play Again or Q-Quit", red)
+            message("You Lost! Press C - Play Again or Q - Quit", red)
             Your_score(Length_of_snake - 1)
             Text()
             pygame.display.update()
