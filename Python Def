@@ -5,3 +5,14 @@ def minus(number1, number2):
   print("your result is :", minusresult)
 
 minus(100, 20) # those  2 number can be change
+
+# return in def
+# note: using return in def requires the print code (in this circumtances)
+# thus, user only need to adjust 'print(multiply(this_your_first_number, this_your_second_number))' *the 1st number and 2nd number only*
+
+
+def multiply(number1, number2):
+  multiply_result = number1 * number2
+  return multiply_result
+
+print(multiply(2, 3))
