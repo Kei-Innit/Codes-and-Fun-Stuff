@@ -1,0 +1,7 @@
+# simple def / fucntion
+
+def minus(number1, number2):
+  minusresult = number1 - number2
+  print("your result is :", minusresult)
+
+minus(100, 20) # those  2 number can be change
