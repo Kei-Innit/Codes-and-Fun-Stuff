@@ -1,3 +1,8 @@
+# Code is from Nazreen 3 Bakawali SMKSA 2023
+# Just a fun tutorial to educate myself on how to use def
+# And you may use the example below
+# Happy coding
+# -----------------------------------------------------------------------
 # simple def / fucntion
 
 def minus(number1, number2):
@@ -16,3 +21,11 @@ def multiply(number1, number2):
   return multiply_result
 
 print(multiply(2, 3))
+
+
+# return with other function in def
+
+def multiply(number1, number2):
+  return number1 * number2        # using the multiplication function in return
+
+print(multiply(2,4))
