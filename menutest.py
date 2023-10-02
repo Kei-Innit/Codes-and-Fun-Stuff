@@ -1,3 +1,9 @@
+# This is made by Nazreen, 3 Bakawali 2023 from SMK Shah Alam / SMKSA
+# Will update, this is prolly for the ASK project. Hopefully will be functional lol
+
+
+
+
 import time as tm
 import random
 
