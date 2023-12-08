@@ -1,9 +1,3 @@
-# This is made by Nazreen, 3 Bakawali 2023 from SMK Shah Alam / SMKSA
-# Will update, this is prolly for the ASK project. Hopefully will be functional lol
-
-
-
-
 import time as tm
 import random
 
@@ -186,6 +180,10 @@ def funtools():
 
     job_option_id = 0
 
+
+    random_delay = random.uniform(5, 15)
+
+
     
     while fun_active_menu == True:
         tm.sleep(0.3)
@@ -226,7 +224,10 @@ def funtools():
             
             elif job_related["job_id"] != 0:
                 print("Lets get to work")
-                
+                tm.sleep(0.3)
+                print("You are currently working...\nPlease wait up to 20 seconds until you finish your shift")
+                tm.sleep(random_delay)
+                print("You have finished your shift, you have earned some money")
 
             
 
