@@ -29,3 +29,17 @@ def multiply(number1, number2):
   return number1 * number2        # using the multiplication function in return
 
 print(multiply(2,4))
+
+
+ # Using global with def
+def socks(numbers)
+global numbers
+  if numbers >= 1:
+    numbers = false
+    print(numbers)
+
+ elif numbers >= 2:
+    numbers = true
+    print(numbers)
+
+numbers = int(input("Enter your sock number\n1 or 2"))
