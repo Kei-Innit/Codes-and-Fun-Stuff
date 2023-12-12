@@ -43,3 +43,4 @@ global numbers
     print(numbers)
 
 numbers = int(input("Enter your sock number\n1 or 2"))
+socks(numbers)
