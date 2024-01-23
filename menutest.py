@@ -1,6 +1,6 @@
 import time as tm
 import random
-
+import os
 
 # Profile variables
 profile_name = "None" # Default if profile_stats is 0
@@ -21,6 +21,14 @@ currency_related = {
 
 
 # Jobs and stuff
+job_payout_multipliers = {
+    "rookie": 1.2,
+    "leader": 2.4,
+    "chief": 3.0,
+}
+
+
+
 job_related = {
     "job_list" : ["Daydreamer", "Guard", "Accountant", 
                   "Content creator", "Police", "Firefighter", 
@@ -29,9 +37,9 @@ job_related = {
                   "Marines", "Astronauts", "Housewife"],
     "job_id" : 0, # 0 is unemployed / jobless, starts from id 1 which is daydreamer. Index sync to job_list
     "job_name" : "None",
-    "job_rank" : "Employed", # 3 ranks for now: rookie, leader, chief
+    "job_rank" : "employed", # 3 ranks for now: rookie, leader, chief
     "job_payout" : 500, # Will increase depends on the job rank and id
-    "working_count" : 0 # certain count will promot user in "job rank" 
+    "working_count" : 0 # certain count will promote user in "job rank" 
 }
 
 trading_account = 0 # 0 if no trading account is created / 1 if trading account is already created
@@ -45,6 +53,12 @@ mining_level = 1 # Will increase each specified blocks mined
 minimum_mining_income = 200
 maximum_mining_income = 9000
 mining_income = random.randint(minimum_mining_income, maximum_mining_income)
+
+
+
+
+def clear():
+    os.system('cls')
 
 
 
@@ -161,6 +175,7 @@ def wallet():
             tm.sleep(0.4)
             print("Also dont forget to fill your wallet as always!")
             tm.sleep(0.7)
+            clear
             wallet_view = False
             in_dash = True
 
@@ -169,6 +184,7 @@ def funtools():
     fun_active_menu = True
     fun_active_state = 0
     fun_choosing = 0
+    global in_dash
     
     fun_tools_list = ["Work",
                       "Trading",
@@ -218,6 +234,7 @@ def funtools():
                     tm.sleep(1)
                     print("Congrats, you are now working as", job_related["job_name"])
                     job_related["job_id"] = job_option_id
+                    job_related["job_rank"] = "Rookie"
 
                 except ValueError:
                     print("Such job doesn't exists bro")
@@ -226,8 +243,33 @@ def funtools():
                 print("Lets get to work")
                 tm.sleep(0.3)
                 print("You are currently working...\nPlease wait up to 20 seconds until you finish your shift")
+                
+                if job_related["working_count"] == 3:
+                    if job_related["job_rank"] == "Rookie":
+                        job_related["job_rank"] == "Leader"
+                    elif job_related["job_rank"] == "Leader":
+                        job_related["job_rank"] == "Chief"
+                
                 tm.sleep(random_delay)
                 print("You have finished your shift, you have earned some money")
+                job_related["working_count"] += 1
+                if job_related["job_rank"] == "Rookie":
+                    job_related["job_payout"] *= job_payout_multipliers["rookie"]
+                    currency_related["money_balance"] += job_related["job_payout"]
+                    print("Current money balance is", currency_related["money_balance"])
+                if job_related["job_rank"] == "Leader":
+                    job_related["job_payout"] *= job_payout_multipliers["leader"]
+                    currency_related["money_balance"] += job_related["job_payout"]
+                    print("Current money balance is", currency_related["money_balance"])
+                if job_related["job_rank"] == "Chief":
+                    job_related["job_payout"] *= job_payout_multipliers["chief"]
+                    currency_related["money_balance"] += job_related["job_payout"]
+                    print("Current money balance is", currency_related["money_balance"])
+
+        elif fun_choosing == "7":
+           fun_active_menu = False
+           in_dash = True
+                
 
             
 
